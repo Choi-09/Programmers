@@ -1,0 +1,6 @@
+-- 코드를 입력하세요
+SELECT order_id, product_id, date_format(out_date, "%Y-%m-%d") as out_date, 
+if (date_format(out_date, "%Y-%m-%d") < '2022-05-02', '출고완료', 
+    if(out_date is not null, '출고대기','출고미정')) as 출고여부
+from food_order 
+order by order_id
